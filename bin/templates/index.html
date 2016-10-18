@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8"/>
+<title>GisMail</title>
+<script src="./jquery/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="./css/style.css" rel="stylesheet"/>
+<script src="./js/app.js"></script>
+<script src="./js/controllers/listarController.js"></script>
+<script src="./js/controllers/enviarController.js"></script>
+<script src="./js/controllers/responderController.js"></script>
+
+</head>
+<body class="container-fluid">
+<div>
+	<div class="row">
+		<div class="col-md-3 fundoUnicarioca"></div>
+		<div class="col-md-6 fundoFormulario">
+			<center><h1>GISMAIL</h1></center>
+			<div>
+			      <ul class="nav nav-tabs fontEm">
+         			<li ng-class=""><a href="#/listar">Listar mensagens</a></li>
+         			<li ng-class=""><a href="#/enviar">Enviar mensagem</a></li>
+     			 </ul>
+     			 <div>
+     			 	<ng-view></ng-view>
+     			 </div>
+			</div>
+		</div>
+		<div class="col-md-3 fundoUnicarioca">.col-md-1</div>
+	</div>
+</div>
+
+
+</body>
+</html>

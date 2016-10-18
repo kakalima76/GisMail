@@ -1,0 +1,65 @@
+.fundoAzul{
+		background-color: blue;
+	}
+	
+.fundoVerde{
+		background-color: green;
+	}
+	
+.fontEm{
+		font-size: 1.5em;
+}
+
+.margemTop{
+	margin-top: 3.5%;
+}
+
+
+
+@media  screen and (max-width:768px) {
+	
+	.fundoFormulario {
+		height: 90vh;
+		background-color: gray;
+	}
+	
+	.fundoUnicarioca {
+		height: 5vh;
+		background-image: url("./images/unicarioca.png");
+		background-repeat: space;
+	}
+
+}
+
+@media  screen and (min-width:768px) and (max-width: 992px) {
+	
+	
+	.fundoFormulario {
+		height: 90vh;
+		background-color: gray;
+	}
+	
+	.fundoUnicarioca {
+		height: 5vh;
+		background-image: url("./images/unicarioca.png");
+		background-repeat: space;
+	}
+
+}
+
+@media  screen and (min-width:992px) {
+
+	
+	.fundoFormulario {
+		height: 100vh;
+		background-color: gray;
+	}
+	
+	.fundoUnicarioca {
+		height: 100vh;
+		background-image: url("./images/unicarioca.png");
+		background-repeat: space;
+	}
+
+}
+

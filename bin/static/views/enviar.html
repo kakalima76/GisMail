@@ -1,0 +1,24 @@
+<div class="margemTop">
+
+	<form>
+		<div class="form-group">
+			<label for="destino">PARA:</label> <input
+				type="text" class="form-control" id="destino"
+				placeholder="email de destino" ng-model="vm.mensagem.destino">
+		</div>
+		
+		<div class="form-group">
+			<label for="titulo">TÍTULO:</label> <input
+				type="text" class="form-control" id="titulo"
+				placeholder="titulo da mensagem" ng-model="vm.mensagem.titulo">
+		</div>
+		<div class="form-group">
+			<label >MENSAGEM:</label> 
+			<textarea class="form-control" rows="3" ng-model="vm.mensagem.mensagem"></textarea>
+		</div>
+	
+		<button type="submit" class="btn btn-default" ng-click="vm.salvar(vm.mensagem)">Enviar</button>
+
+	</form>
+
+</div>
