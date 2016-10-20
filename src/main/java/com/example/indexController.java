@@ -1,5 +1,8 @@
 package com.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +23,38 @@ public class indexController {
 	
 	@RestController
 	class RestEmail{
-		@RequestMapping(method = RequestMethod.POST, value = "/imprime", produces = MediaType.APPLICATION_JSON_VALUE,
-				consumes = MediaType.APPLICATION_JSON_VALUE)
+				
+Map<String, EmailTrabalho> emails;
+
+Integer count = 0;
+		
+		//negocios
+		
+		private EmailTrabalho cadastrar(EmailTrabalho emailTrabalho){
 			
-		public ResponseEntity<EmailTrabalho> imprimir(@RequestBody EmailTrabalho emailTrabalho){
-			EmailTrabalho pegaEamil = new EmailTrabalho(emailTrabalho);
-			return new ResponseEntity<EmailTrabalho>(HttpStatus.OK);
+			if(emails==null){
+				emails = new HashMap<>();
+			}
+			
+			count++;
+			
+			emails.put(count.toString(), emailTrabalho);
+			
+			return emailTrabalho;
 		}
+		
+		
+		//End points
+		
+		@RequestMapping(method = RequestMethod.POST, value="/emails", consumes=MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<EmailTrabalho> cadastrarEmail(@RequestBody EmailTrabalho emailTrabalho){
+			EmailTrabalho e = cadastrar(emailTrabalho);
+			System.out.println(e.getId());
+			return new ResponseEntity<EmailTrabalho>(e, HttpStatus.OK);
+		}
+		
+		
+			
 		
 	}
 	
