@@ -4,9 +4,12 @@ app.service("emailService", ["$http", function($http){
 		return  $http.get("http://localhost:8080/emails");
 	}
 	
-	
+	var enviar = function(obj){
+		return $http.post("http://localhost:8080/emails", obj);
+	}
 	
 	return {
-		listar: listar
+		listar: listar,
+		enviar: enviar
 	}
 }])
