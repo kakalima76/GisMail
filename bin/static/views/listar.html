@@ -2,8 +2,8 @@
 <div class="margemTop">
 	<div ng-repeat="msg in vm.mensagens">
 		<ul class="list-group">
-			<li class="list-group-item">Título: {{msg.titulo}}</li>
-			<li class="list-group-item">Mensagem: {{msg.msg}}</li>
+			<li class="list-group-item">Remetente: {{msg.origem}}</li>
+			<li class="list-group-item">Mensagem: {{msg.mensagem}}</li>
 			<li class="list-group-item">
 				<button class="btn btn-default" type="submit" ng-click="vm.responder(msg.titulo)">Responder</button>
 			</li>

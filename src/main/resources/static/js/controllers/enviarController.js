@@ -1,4 +1,4 @@
-app.controller("enviarController", ["$scope", "gmailService", function($scope, gmailService){
+app.controller("enviarController", ["$scope", "emailService", function($scope, gmailService){
 	console.log("enviarController");
 	var vm = this;
 	vm.mensagem = {};
@@ -9,12 +9,6 @@ app.controller("enviarController", ["$scope", "gmailService", function($scope, g
 		console.log(obj);
 		$scope.mensagem = {}
 	}
-	
-	var promise = gmailService.listar();
-	promise.then(function(data){
-		console.log(data);
-	});
-	
 	
 	
 }])

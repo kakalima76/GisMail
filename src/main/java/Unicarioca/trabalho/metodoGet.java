@@ -2,6 +2,8 @@ package Unicarioca.trabalho;
 
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.Thread;
+import com.sun.mail.handlers.message_rfc822;
 import com.google.api.services.gmail.model.Message;
 
 import java.io.ByteArrayInputStream;
@@ -39,9 +41,19 @@ public class metodoGet {
     Session session = Session.getDefaultInstance(props, null);
 
     MimeMessage email = new MimeMessage(session, new ByteArrayInputStream(emailBytes));
-
+    
     return email;
   }
+  
+  public static Message getMessage(Gmail service, String userId, String messageId)
+	      throws IOException {
+	    Message message = service.users().messages().get(userId, messageId).execute();
+
+	   /*System.out.println("Message snippet: " + message.toPrettyString());*/
+
+	    return message;
+	  }
 
 
+  
 }

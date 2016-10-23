@@ -1,14 +1,14 @@
-app.controller("listarController", [function(){
+app.controller("listarController", ["emailService", function(emailService){
 	console.log("listarController");
-	
+
 	var vm = this;
 	
-	vm.mensagens =
-		[
-		 	{"titulo": "Reunião", "msg": "Reunião agendada"},
-		 	{"titulo": "Encontro", "msg": "encontro aguardado"}
-		 	
-		]
+	var promise = emailService.listar();
+	promise.then(function(data){
+		vm.mensagens = data.data;
+		console.log(data.data);
+	})
+	
 	
 	vm.responder = function(value){
 		console.log(value);
