@@ -49,7 +49,7 @@ public class metodoGet {
 	      throws IOException {
 	    Message message = service.users().messages().get(userId, messageId).execute();
 
-	   /*System.out.println("Message snippet: " + message.toPrettyString());*/
+	   System.out.println("Message snippet: " + message.toPrettyString());
 
 	    return message;
 	  }

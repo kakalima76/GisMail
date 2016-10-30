@@ -37,9 +37,9 @@ public class metodoList {
 	      }
     }
 
-    /*for (Message message : messages) {
+    for (Message message : messages) {
       System.out.println(message.toPrettyString());
-    }*/
+    }
 
     return messages;
   }

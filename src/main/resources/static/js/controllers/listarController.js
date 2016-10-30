@@ -2,8 +2,8 @@ app.controller("listarController", ["emailService", "emailFactory", "$location",
 	var vm = this;
 	
 	var promise = emailService.listar();
-	promise.then(function(data){
-		vm.mensagens = data.data;
+	promise.then(function(resp){
+		vm.mensagens = resp.data;
 	})
 	
 	

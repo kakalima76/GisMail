@@ -53,6 +53,8 @@ public class indexController {
 		
 		@RequestMapping(method = RequestMethod.POST, value="/emails", consumes=MediaType.APPLICATION_JSON_VALUE)
 		public ResponseEntity<Mensagem> criarMensagem(@RequestBody Mensagem mensagem) throws MessagingException, IOException{
+			
+			//esse metodo cria a autorização para acessar o gmail
 			Gmail service = GmailQuickstart.getGmailService();
 			String to = mensagem.getDestino();
 			String from = "gismailunicarioca@gmail.com";
@@ -75,7 +77,7 @@ public class indexController {
 	        List<String> labelIds = new ArrayList<String>();
 	        labelIds.add("INBOX");
 	        Collection<Message> msg = metodoList.listMessagesWithLabels(service, userId, labelIds);
-			      
+			//cria a lista de mensagens que será retornada pelo end point      
 	        List<Mensagem> mensagens = new ArrayList<Mensagem>(); 
 	        
 	        //criar um objeto java Json
@@ -86,15 +88,21 @@ public class indexController {
 	        msg.forEach((x) -> 
 	        {
 	        	objArray.put(x);
+	        	//instacia um mensagem para cada objeto .json
 	        	Mensagem mensagem  = new Mensagem();
+	        	//adiciona a nova mensagem a lista de mensagens
 	        	mensagens.add(mensagem);	        	
 	        });
 	       
 	        for(int i = 0; i < objArray.length(); i++){
 	        	
 	        	JSONObject  obj = objArray.getJSONObject(i);
+	        	
+	        	
 	        	Message message = metodoGet.getMessage(service, userId, obj.getString("id"));
-	        	objArrayOrigem.put(message.getPayload().getHeaders().get(3));    	
+	        	//cria um novo jsonArray para poder acessar o método getSttrint()
+	        	//do jsonObject, para assim acessar o remetente
+	        	objArrayOrigem.put(message.getPayload().getHeaders().get(3));     	
 	        	
 	        	MimeMessage email = metodoGet.getMimeMessage(service, userId, obj.getString("id"));
 	        	        	
@@ -104,6 +112,7 @@ public class indexController {
 	        
 	        for(int n = 0; n < objArrayOrigem.length(); n++){
 	        	JSONObject obj = objArrayOrigem.getJSONObject(n);
+	        	//acessa a chave de nome value do jsonObject
 	        	mensagens.get(n).setOrigem(obj.getString("value").replace("<", "").replace(">", ""));
 	        }	        
 			
@@ -111,6 +120,5 @@ public class indexController {
 		}		
 		
 	}
-	
 	
 }
